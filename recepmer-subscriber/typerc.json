@@ -1,0 +1,33 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
+  "name": "Recepmer Subscriber",
+  "tags": [
+    "Recepmer Subscriber",
+    "NestJs",
+    "Node",
+    "PubSub",
+    "Kafka"
+  ],
+  "kind": "recepmer-subscriber",
+  "folder": "apps",
+  "icons": {
+    "light": "icons/icon.svg",
+    "dark": "icons/icon.svg"
+  },
+  "descriptions": {
+    "es": "Plantilla Recepción de mercadería Subscriber",
+    "en": "Recepmer Subscriber Template"
+  },
+  "scripts": {
+    "pre": "scripts/pre.js",
+    "post": "scripts/post.js",
+    "for_each": "scripts/for_each.js",
+    "rollback": "scripts/rollback.js"
+  },
+  "interpolations": {
+    "source": "template",
+    "substitutions": {
+      "TAG_GOLDEN_REQUIRED": "REQUIRED:GOLDEN"
+    }
+  }
+}

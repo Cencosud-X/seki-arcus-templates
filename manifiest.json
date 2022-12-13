@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/manifiestrc.schema.json",
+  "name": "Arcus Project Templates",
+  "author": {
+    "github_user": "lacajanegra",
+    "name": "Team Seki"
+  },
+  "icons": {
+    "dark": "logo.svg",
+    "light": "logo.svg"
+  },
+  "descriptions": {
+    "en": "A little list of Arcus projects 😋",
+    "es": "Una pequeña lista de projectos Arcus 😋"
+  },
+  "types": [
+    "injector-api/typerc.json",
+    "recepmer-subscriber/typerc.json", 
+    "arcus-portal/typerc.json"
+  ]
+}
