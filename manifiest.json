@@ -14,7 +14,7 @@
     "es": "Una pequeña lista de projectos Arcus 😋"
   },
   "types": [
-    "injector-api/typerc.json",
+    "api/typerc.json",
     "recepmer-subscriber/typerc.json", 
     "arcus-portal/typerc.json"
   ]
