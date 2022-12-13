@@ -7,7 +7,7 @@
     "Node",
     "React"
   ],
-  "kind": "arcus-portal",
+  "kind": "web",
   "folder": "apps",
   "icons": {
     "light": "icons/icon.svg",

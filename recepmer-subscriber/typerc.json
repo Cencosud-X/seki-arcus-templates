@@ -8,7 +8,7 @@
     "PubSub",
     "Kafka"
   ],
-  "kind": "recepmer-subscriber",
+  "kind": "subscriber",
   "folder": "apps",
   "icons": {
     "light": "icons/icon.svg",
