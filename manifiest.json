@@ -16,6 +16,6 @@
   "types": [
     "api/typerc.json",
     "subscriber/typerc.json", 
-    "arcus-portal/typerc.json"
+    "web/typerc.json"
   ]
 }
