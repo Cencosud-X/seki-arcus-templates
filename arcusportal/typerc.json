@@ -1,7 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
-  "name": "Arcus Portal",
+  "name": "Web",
   "tags": [
+    "Nestjs",
+    "Api",
     "Node",
     "React"
   ],
@@ -21,9 +23,6 @@
     "rollback": "scripts/rollback.js"
   },
   "interpolations": {
-    "source": "template",
-    "substitutions": {
-      "TAG_GOLDEN_REQUIRED": "REQUIRED:GOLDEN"
-    }
+    "source": "template"
   }
 }
