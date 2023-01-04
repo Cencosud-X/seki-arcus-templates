@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './index.module.css';
+import { hotjar } from 'react-hotjar';
+import secrets from '../../config/secrets'
 
 interface IProps {
   onLoadComplete: () => void;
@@ -18,7 +20,7 @@ export default class BootingPage extends React.Component<IProps, IState> {
 
   startWarmUp(onFinish: () => void) {
     // Put here the booting logic
-
+    hotjar.initialize(secrets.HOTJAR_ID, secrets.HOTJAR_SNIPPET_VERSION);
     onFinish();
   }
 

@@ -1,56 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './themes/default.css';
+import '@arcus-core/ui-shared';
+import 'antd/dist/antd.less'
 
 import BootingPage from './pages/booting';
 import SignInPage from './pages/sign-in';
+import { AuthenticationClient } from '@arcus-core/web-core-utilities';
+import MainLayout from './pages/layout';
 
-interface IProps {}
-interface PageState {
-  booting: boolean;
-  authenticated: boolean;
-  layout?: React.ComponentClass;
-}
+const App: React.FC = () => {
+  const [authenticated, setAuth] = useState<boolean>(false);
+  const [booting, setAppBooting] = useState<boolean>(true);
 
-export default class App extends React.Component<IProps, PageState> {
-  override state: PageState = {
-    // Just for pre-boot that we really need
-    // before other clients
-    booting: true,
-    authenticated: false,
+  useEffect(() => {
+    const getStorageClientData = async () => {
+      try {
+        await AuthenticationClient.boot();
+        setAuth(AuthenticationClient.isAuthenticated());
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getStorageClientData();
+  }, []);
+
+  const onBootCompleteHandler = () => {
+    setAppBooting(false);
   };
 
-  onBootCompleteHandler = async () => {
-    // Dynamic Import of the Main Layout 
-    // after, all booting ocurrs
-    const MainLayout = (await import('./pages/layout')).default;
-
-    this.setState({
-      booting: false,
-      layout: MainLayout,
-    });
+  const onAuthenticatedHandler = () => {
+    setAuth(true);
   };
 
-  onAuthenticatedHandler = async () => {
-    this.setState({
-      authenticated: true,
-    });
-  };
-
-
-  override render() {
-    const { booting, authenticated, layout } = this.state;
-
-    if (booting) {
-      return <BootingPage onLoadComplete={this.onBootCompleteHandler} />;
-    }
-
-    if (!authenticated) {
-      return <SignInPage onAuthenticated={this.onAuthenticatedHandler} />;
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const MainLayout = layout!;
-    return <MainLayout />;
+  if (booting) {
+    return <BootingPage onLoadComplete={onBootCompleteHandler} />;
   }
-}
+
+  if (!authenticated) {
+    return <SignInPage onAuthenticated={onAuthenticatedHandler} />;
+  }
+
+  return <MainLayout />;
+};
+
+export default App;
