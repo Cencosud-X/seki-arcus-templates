@@ -6,6 +6,12 @@ module.exports = (config, context) => {
     output: {
       filename: '[name].js'
     },
+    module: {
+      rules: [{
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader']
+      }],
+    },
     optimization: {
       splitChunks: {
         chunks: 'all',

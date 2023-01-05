@@ -7,5 +7,11 @@
       }
     ]
   ],
-  "plugins": []
+  "plugins": [
+    ["babel-plugin-react-css-modules",
+    {
+      "webpackHotModuleReloading": true,
+      "autoResolveMultipleImports": true
+    }]
+  ]
 }
