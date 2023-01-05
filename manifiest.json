@@ -17,6 +17,6 @@
     "api/typerc.json",
     "subscriber/typerc.json", 
     "web/typerc.json",
-    "utilities/typerc.json"
+    "library/typerc.json"
   ]
 }
